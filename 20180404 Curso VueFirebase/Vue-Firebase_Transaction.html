@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-Firebase_Transaction</title>
+
+    <link rel="stylesheet" href="pruebatablasCSS.css">
+    <script src="main.js" class="text/JavaScript"></script>
+</head>
+
+<body>
+    <div id="app">
+        <form @submit.prevent="enviarMensaje">
+            <input v-model="mensaje" cols="30" rows="10"></input>
+            <br>
+            <input type="submit" value="Enviar mensaje">
+
+            <div class="form_group">
+                <label for="id">ID</label>
+                <input v-model="id" type="text" class="form-control" id="id" />
+            </div>
+            <div class="form_group">
+                <label for= "idsupervisor">SUPERVISOR</label>
+                <input type="text" class="form-control" id="fecha" />
+            </div>
+            <div class="form_group">
+                <label for= "dateAPT">FECHA</label>
+                <input type="text" class="form-control" id="fecha" />
+            </div>
+            <div class="form_group">
+                <label for= "descriptionAPT">DESCRIPCIÓN</label>
+                <input type="text" class="form-control" id="descripcion" />
+            </div>
+            <div class="form_group">
+                <label for= "actionAPT">ACCIÓN TOMADA</label>
+                <input type="text" class="form-control" id="accion" />
+            </div>
+            <div class="form_group">
+                <label for= "typeAPT">TIPO APT</label>
+                <input type="text" class="form-control" id="typeAPT" />
+            </div>
+            <div class="form_group">
+                <label for= "category">CATEGORÍA APT</label>
+                <input type="text" class="form-control" id="category" />
+            </div>
+            <div class="form_group">
+                <label for= "photoAPT">FOTO</label>
+                <input type="text" class="form-control" id="photo" />
+            </div>
+            <div class="form_group">
+                <label for= "learningAPT">APRENDIZAJE</label>
+                <input type="text" class="form-control" id="aprendizaje" />
+            </div>
+            <div class="form_group">
+                <label for= "causes">EFECTO EN LA INSTALACIÓN</label>
+                <input type="text" class="form-control" id="causes" />
+            </div>
+        </div>
+
+        </form>
+        <hr>
+        <h1>Mensajes</h1>
+        <ul>
+            <li v-for="mensaje in mensajes">
+                {{ mensaje.mensaje}}
+                <small>
+                    <i>({{ mensaje.username }})</i>
+                </small>
+            </li>
+        </ul>
+        <ul>
+            <li v-for="mensaje in mensajes">
+                <!--Utilizamos $event: variable de "cortesía" de Vue que aporta información sobre el evento
+                    Con @blur: indicamos que cuando pierda el foco recargue y muestre el resultado del método editarMensaje
+                    Enviaremos el mensaje local (key específica) dentro de la directiva v-for que recorre la matriz mensajes-->
+                <span contenteditable="true" @blur="editarMensaje($event, mensaje.key)">
+                    {{ mensaje.mensaje}}
+                </span>
+                <small>
+                    <i>{{ mensaje.username }}</i>
+                </small>
+                <small>
+                    <i>{{ mensaje.username1 }}</i>
+                </small>
+                <small>
+                    <i>{{ mensaje.like }}</i>
+                </small>
+                <small>
+                    <i>{{ mensaje.id }}</i>
+                </small>
+             
+                <!-- eliminamos solo el mensaje.key, que identifica de manera unívoca el mensaje seleccionado-->
+                <button @click="eliminarMensaje(mensaje.key)">delete</button>
+                
+            </li>
+        </ul>
+  
+    <div id="app1">
+
+        <h1>Datos del usuario</h1>
+        <dl>
+            <dt>
+                <i>eeeeeee</i>
+            </dt>
+            <dd>{{ datosPerfil.username }}</dd>
+            <dt>
+                <i>Ciudad:</i>
+            </dt>
+            <dd>{{ datosPerfil.ciudad }}</dd>
+            <dt>
+                <i>País:</i>
+            </dt>
+            <dd>{{ datosPerfil.pais }}</dd>
+            <dt>
+                <i>Likes:</i>
+            </dt>
+            <dd>{{ datosPerfil.likes }}</dd>
+            <button @click="actualizarLikes">Añadir like</button>
+        </dl>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <form id="nuevo-equipo">
+                    <div class="form_group">
+                        <label for "id">ID</label>
+                        <input type="text" class="form-control" id="id" />
+                    </div>
+                    <div class="form_group">
+                        <label for "idsupervisor">SUPERVISOR</label>
+                        <input type="text" class="form-control" id="fecha" />
+                    </div>
+                    <div class="form_group">
+                        <label for "dateAPT">FECHA</label>
+                        <input type="text" class="form-control" id="aprendizaje" />
+                    </div>
+                    <div class="form_group">
+                        <label for "descriptionAPT">DESCRIPCIÓN</label>
+                        <input type="text" class="form-control" id="aprendizaje" />
+                    </div>
+                    <div class="form_group">
+                        <label for "actionAPT">ACCIÓN TOMADA</label>
+                        <input type="text" class="form-control" id="aprendizaje" />
+                    </div>
+                    <div class="form_group">
+                        <label for "typeAP">TIPO APT</label>
+                        <input type="text" class="form-control" id="aprendizaje" />
+                    </div>
+                    <div class="form_group">
+                        <label for "category">CATEGORÍA APT</label>
+                        <input type="text" class="form-control" id="aprendizaje" />
+                    </div>
+                    <div class="form_group">
+                        <label for "photoAPT">FOTO</label>
+                        <input type="text" class="form-control" id="aprendizaje" />
+                    </div>
+                    <div class="form_group">
+                        <label for "learningAPT">APRENDIZAJE</label>
+                        <input type="text" class="form-control" id="aprendizaje" />
+                    </div>
+                    <div class="form_group">
+                        <label for "causes">EFECTO EN LA INSTALACIÓN</label>
+                        <input type="text" class="form-control" id="aprendizaje" />
+                    </div>
+
+                    <button class="btnFijo3" id="mostrar-tabla">TABLA 1</button>
+                    <button class="btnFijo1" id="mostrar-tabla1">TABLA 2</button>
+
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <div id="tabla-clasificacion">
+                    <table class="tabla1">
+                        <thead>
+                            <th>ID</th>
+                            <th>FECHA</th>
+                            <th>APRENDÍ</th>
+                        </thead>
+                        <tbody id="equipos-tabla">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div id="tabla-clasificacion">
+            <table class="tabla1">
+                <thead>
+                    <th>Empleado Max</th>
+                    <th>FECHA</th>
+                    <th>APRENDÍ</th>
+                </thead>
+                <tbody id="equipos-tabla1">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        const config = {
+            apiKey: "AIzaSyAHp3vB8Mc8JzdSXptEh3KY9LBQ97PeNLg",
+            authDomain: "basedatos2-ccc9b.firebaseapp.com",
+            databaseURL: "https://basedatos2-ccc9b.firebaseio.com",
+            projectId: "basedatos2-ccc9b",
+            storageBucket: "basedatos2-ccc9b.appspot.com",
+            messagingSenderId: "965566008304"
+        };
+        firebase.initializeApp(config);
+        const db = firebase.database();
+        // Vue stuff
+
+        // Desarrollo métodos para enviar/cargar/editar/eliminar la base de datos
+        new Vue({
+            el: '#app',
+            created() {
+                db.ref('/chats')
+                    .on('value', snapshot => this.cargarMensajes(snapshot.val()))
+            },
+            data: {
+                mensaje: null,
+                username: 'emilioC',
+                username1: 'Emilio en este caso',
+                like: '0',
+                id: null,
+                idsupervisor: null,
+                mensajes: [],
+            },
+            methods: {
+                cargarMensajes(mensajes) {
+                    //Limpiamos mensajes para que no se dupliquen. 
+                    this.mensajes = [];
+                    for (let key in mensajes) {
+                        this.mensajes.push({
+                            mensaje: mensajes[key].mensaje,
+                            username: mensajes[key].username,
+                            username1: mensajes[key].username1,
+                            like: mensajes[key].like,
+                            id: mensajes[key].id,
+                            idsupervisor: mensaje[key].idsupervisor,
+                            key: key,
+                        });
+                    }
+                    //Mostramos en primer lugar los últimos valores incorporados en la matriz. 
+                    this.mensajes.reverse();
+                },
+                enviarMensaje() {
+                    db.ref('/chats')
+                        .push({
+                            mensaje: this.mensaje,
+                            username: this.username,
+                            username1: this.username1,
+                            like: this.like,
+                            id: this.id,
+                            idsupervisor: this.idsupervisor,
+                        })
+                        .then((data) => {
+                            this.mensaje = '';
+                            console.log(data.key);
+                            console.log(this.username);
+                        });
+                },
+                //Recibimos como parámetro key: idenditifador único de actualización en Firebase
+                editarMensaje(mensaje, key) {
+                    //Definimos qué debemos actualizar. En este caso especificando key generado
+                    // cuando cargamos el mensaje. 
+                    db.ref('/chats/' + key).update({
+                        //Solo actualizamos el mensaje. Lo único que hemos modificado. 
+                        mensaje: mensaje.target.innerHTML
+                    });
+                },
+                eliminarMensaje(key) {
+                    if (confirm("Seguro?")) {
+                        //Del objeto firebase, concretamente el db que representa la base de datos en tiempo real
+                        //eleminará el que coincida con el key (identificador unívoco)
+                        db.ref('/chats/' + key).remove();
+                    }
+                },
+            }
+        });
+
+        new Vue({
+            el: '#app2',
+            created() {
+                db.ref('/perfiles').child('emilio')
+                    .on('value', snapshot => this.datosPerfil = snapshot.val());
+            },
+            data: {
+                datosPerfil: {},
+            },
+            methods: {
+                actualizarLikes() {
+                    db.ref('/perfiles').child('emilio').child('likes')
+                        /*.update({
+                            'likes': this.datosPerfil.likes + 1
+                        })*/
+                        .transaction(function (likesActuales) {
+                            return likesActuales + 1;
+                        }, function (error, commited, snapshot) {
+                            if (error) {
+                                console.error(error);
+                            } else if (!commited) {
+                                console.warn('Transacción no realizada');
+                            } else {
+                                console.info('Transacción realizada');
+                                console.log(snapshot.val());
+                            }
+                        });
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app1',
+            created() {
+                db.ref('/perfiles').child('emilioC')
+                    .on('value', snapshot => this.datosPerfil = snapshot.val());
+            },
+            data: {
+                datosPerfil: {},
+            },
+            methods: {
+                actualizarLikes() {
+                    db.ref('/perfiles').child('emilioC').child('likes')
+                        /*.update({
+                            'likes': this.datosPerfil.likes + 1
+                        })*/
+                        .transaction(function (likesActuales) {
+                            return likesActuales + 1;
+                        }, function (error, commited, snapshot) {
+                            if (error) {
+                                console.error(error);
+                            } else if (!commited) {
+                                console.warn('Transacción no realizada');
+                            } else {
+                                console.info('Transacción realizada');
+                                console.log(snapshot.val());
+                            }
+                        });
+                }
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

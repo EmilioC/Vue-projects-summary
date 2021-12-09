@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js" lang>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue - index 4</title>
+    <meta name="description" content>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pruebatablasCSS.css">
+</head>
+<body> 
+    <!--Con un for recorro los APT's que incluydo dentro del fichero js.  -->
+        <main>
+            <h3>JavaScript</h3>            
+            <button class="btnFijo3" id="mostrar-tabla">EXPANDIR TABLA</button>
+        </div>
+        <div class="col-sm-6">
+          <div id="tabla-clasificacion">
+          <table class="tabla2">
+            <thead>
+                <th>ID</th>
+                <th>FECHA</th>
+                <th>APRENDÍ</th>                  
+                </thead>
+                <tbody id="equipos-tabla">              
+                </tbody>     
+            </table>
+            </div>
+            </div>
+        </div>
+        <!--Con Vue-for Recorremos matriz apt -->
+            <h3 >Vue</h3>
+        <ul>
+            <li v-for="(apts, index) in apt">
+                {{ index}} - {{ apts.dateAPT }} 
+                <small>({{  apts.descriptionAPT}})</small>
+                <small>({{  apts.actionAPT}})</small>
+            </li>
+        </ul>
+        <!--Con Vue-for Recorremos matriz apt -->
+
+        <h3 >Vue v-for="(apts, index) in apt" </h3>
+        <ul>
+            <li v-for="dia in laborales">{{ dia }}</li>
+        </ul>-->
+
+        <ul v-for="(apts, index) in apt">
+            <h1>{{apts.nAPT}} </h1>
+            <h1>{{apts.descriptionAPT}} </h1>
+            <h1>{{apts.causes}} </h1>
+         </ul>
+
+       <!-- Con Vue-for Recorremos matriz apt -->
+
+       <ul>
+        
+        <li v-for="apts in apt">{{ apt.areaAPT }}</li>
+        </ul>-->
+                
+
+        </main>
+        <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+        <script src="main4.js"></script>
+    </body>
+
+    </html>

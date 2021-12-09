@@ -1,0 +1,145 @@
+
+<!--Curso https://wmedia.teachable.com/courses/140226/lectures/3110978-->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue-Firebase_Consultas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- Asociamos el método del objeto Vue al formulario-->
+        <form @submit.prevent="enviarMensaje">
+            <!-- Asociamos el mensaje del objeto Vue al textarea-->
+            <textarea v-model="mensaje"  cols="30" rows="10"></textarea>
+            <br>
+            <input type="submit" value="Enviar mensaje">
+        </form>
+   <hr>
+    <h1>Mensajes</h1>
+    <ul>
+        <!--Utilizamos una directiva local para recorrer y recuperar los datos desde la db.-->
+        <li v-for="mensaje in mensajes">
+            {{mensaje.mensaje}}
+            <small><i>({{ mensaje.username }})</i></small>
+        </li>
+    </ul>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        const config = {
+            apiKey: "AIzaSyAHp3vB8Mc8JzdSXptEh3KY9LBQ97PeNLg",
+            authDomain: "basedatos2-ccc9b.firebaseapp.com",
+            databaseURL: "https://basedatos2-ccc9b.firebaseio.com",
+            projectId: "basedatos2-ccc9b",
+            storageBucket: "basedatos2-ccc9b.appspot.com",
+            messagingSenderId: "965566008304"
+        };
+
+        firebase.initializeApp(config);
+
+
+        //Guardar una referencia a la base de datos
+        const db = firebase.database();
+        /*// set sobrescribe la información que haya.  Si no existe crea una rama.      
+        db.ref('/perfiles/emilio').set({
+            username: 'emilicordoba',
+            password: '6464',
+            ciudad: 'Córdoba',
+            pais: 'España'
+        }).then(()=>console.info('Datos añadidos'));
+
+         //push añadimos a la lista sin sobrescribir. Si no existe crea una rama.
+         //Genera una clave única cada vez que se agrega un nuevo elemento secundario 
+         //a la referencia de Firebase especificada.
+         //La clave única generada por push() se basa en una marca de tiempo. 
+         //Por lo tanto, los elementos de las listas se ordenan cronológicamente de forma automática.
+         //Guadamos nuevos datos anidados (lista)
+         document.getElementById('formulario').onsubmit = function(event){
+           event.preventDefault();
+           console.log ("Works");
+           //Capturamos la información del mensaje. 
+           let mensaje = document.getElementById('mensaje');
+           //Cargamos los datos con push. Si 'chat'no estuviese creado, lo crearía.
+           db.ref('chat').push({
+             username: 'emilio',
+             mensaje: mensaje.value,
+           }).then(()=>{
+             console.info('Mensaje enviado');
+             mensaje.value= "";
+           })
+         }
+         */
+
+
+        //Vue stuff
+
+        new Vue({
+            el: '#app',
+
+            //creamos un punto del ciclo de vida de la instancia VUE
+            //Event value: es una referencia a la base de datosevento que 
+            //se lanza una primera vez cuando se carga la aplicación y cada vez 
+            //que cambia o se modifica la base de datos. 
+            created(){
+                //Definimos donde va a escuchar el evento en este caso en la 
+                //rama /chats
+                db.ref('/chats')
+                //snapshot: es una captura de lo que hay en ese momento en la rama
+                    .on('value', snapshot => this.cargarMensajes(snapshot.val()))
+
+            },
+
+            data: {
+                mensaje: null,
+
+                username: 'emilio',
+                mensajes: [],
+                //Creamos una matriz vacía donde almacenaremos el snapshot
+            },
+
+            methods: {
+
+                cargarMensajes(mensajes){
+
+                    //Iniciamos limpiando para que no se dupliquen
+                    this.mensajes=[];
+                    //Iteremamos sobre el objeto mensajes para mostrarlo. 
+                    for (let key in mensajes){
+                        //Utilizamos un push nativo de JavaScript 
+                        this.mensajes.push({
+                            mensaje: mensajes[key].mensaje, 
+                            mensaje: mensajes[Key].username,
+                        });
+                    }
+                    this.mensajes.reverse();
+                },
+                enviarMensaje() {
+                    db.ref('/chats')
+                        .push({
+                            mensaje: this.mensaje,
+                            username: this.username,
+                        })
+                        //push devuelve una "promesa", la utilizamos para verificar la ejecución correcta. 
+                        .then((data) => {                            
+                            this.mensaje = '';
+                        // data.key devuelve la clave única que se ha generado al realizar la inserción
+                        //en la base de datos. 
+                            console.log(data.key);
+                        });
+                }
+            }
+        })
+    </script>
+</body>
+</html>

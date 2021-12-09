@@ -1,0 +1,426 @@
+<!doctype html>
+<html class="no-js" lang>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue - GoogleSite</title>
+    <meta name="description" content>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pruebatablasCSS.css">
+</head>
+<body> 
+    <!--Con un for recorro los APT's que incluydo dentro del fichero js.  -->
+        <main>
+            <h3>JavaScript</h3>            
+            <button class="btnFijo3" id="mostrar-tabla">EXPANDIR TABLA</button>
+        </div>
+        <div class="col-sm-6">
+          <div id="tabla-clasificacion">
+          <table class="tabla2">
+            <thead>
+                <th>ID</th>
+                <th>FECHA</th>
+                <th>APRENDÍ</th>                  
+                </thead>
+                <tbody id="equipos-tabla">              
+                </tbody>     
+            </table>
+            </div>
+            </div>
+        </div>
+        <!--Con Vue-for Recorremos matriz apt -->
+            <h3 >Vue</h3>
+        <ul>
+            <li v-for="(apts, index) in apt">
+                {{ index}} - {{ apts.dateAPT }} 
+                <small>({{  apts.descriptionAPT}})</small>
+                <small>({{  apts.actionAPT}})</small>
+            </li>
+        </ul>
+        <!--Con Vue-for Recorremos matriz apt -->
+        <ul>
+            <li v-for="dia in laborales">{{ dia }}</li>
+        </ul>-->
+
+        <ul v-for="(apts, index) in apt">
+            <h1>{{apts.nAPT}} </h1>
+            <h1>{{apts.descriptionAPT}} </h1>
+            <h1>{{apts.causes}} </h1>
+         </ul>
+
+       <!-- Con Vue-for Recorremos matriz apt -->
+
+       <ul>
+        
+        <li v-for="apts in apt">{{ apt.areaAPT }}</li>
+        </ul>-->
+                
+
+        </main>
+        <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+        <script src="main4.js">
+        
+        window.onload =cargarEventos;
+
+function cargarEventos (){
+
+    //Cójeme de la página aquel elemento cuyo id es mostrar-tabla
+    //añadimos la acción al elementos el escuchador de eventos
+    document.getElementById("mostrar-tabla").addEventListener("click", mostrarTabla, false);
+    
+    // Mostrar un partido en la tabla
+    function mostrarTabla(){
+
+        var cuerpoTabla = document.getElementById("equipos-tabla");
+        var tablaLlena ="";
+
+        for (var i = 0; i< apt.length; i++){
+            tablaLlena += 
+            "<tr><td>"+ apt[i].idInitiator + 
+            "</td><td>"+ apt[i].dateAPT +  
+            "</td><td>"+ apt[i].learningAPT + 
+            "</td><tr>";
+        }        
+    cuerpoTabla.innerHTML =  tablaLlena;
+    }
+}
+
+const vm = new Vue({
+
+    
+    el: 'main',
+    data:  {
+        laborales: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],  
+        tareas: [
+            {nombre:'Levantarse', prioridad:'baja'},
+            {nombre:'Desayunar', prioridad:'alta'},
+            {nombre:'Ir al trabajo', prioridad:'alta'},
+        ],
+        message: 'hola que tal ',
+        message2: '¡Vue.js!',
+
+        methods: {
+            
+            mostrarTabla1: function () {
+                
+                var cuerpoTabla = document.getElementById("equipos-tabla1");
+                var tablaLlena ="";
+            
+                for (var i = 0; i< apt.length; i++){
+            
+                    if ( apt[i].idInitiator =="Max"){
+                    tablaLlena += 
+                    "<tr><td>"+ apt[i].idInitiator + 
+                    "</td><td>"+ apt[i].dateAPT +  
+                    "</td><td>"+ apt[i].learningAPT + 
+                    "</td><tr>";
+                    }
+                } 
+              
+            },
+
+            viewOfApt: function(){
+               
+
+            }
+          },
+        
+        persona:{
+            nombre:'Juan',
+            profesion:'Vue.js',
+            ciudad: 'Valencia',
+        },
+       apt: [
+            {nAPT: '1',
+            idInitiator: 'Max',
+            idSupervisor:'JARomero',
+            dateAPT:'17/03/2018',
+            areaAPT:'Bordas',
+            descriptionAPT:'Cuadro eléctrico con cerradura rota',
+            actionAPT:'Reparación cerradura',
+            typeAP:'Condicion',
+            category:'Riesgo eléctrico',
+            photoAPT:'Foto 1',
+            learningAPT:'Humedad provoca derivación eléctrica',
+            causes:'Deterioro material',
+            },
+            {nAPT: '2',
+            idInitiator: 'Max',
+            idSupervisor:'JARomero',
+            dateAPT:'21/03/2018',
+            areaAPT:'Bordas',
+            descriptionAPT:'Cuadro eléctrico con cerradura rota',
+            actionAPT:'Reparación cerradura',
+            typeAP:'Condicion',
+            category:'Riesgo eléctrico',
+            photoAPT:'Foto 1',
+            learningAPT:'Humedad provoca derivación eléctrica',
+            causes:'Deterioro material',
+            },
+            {nAPT: '3',
+            idInitiator: 'Max',
+            idSupervisor:'JARomero',
+            dateAPT:'26/03/2018',
+            areaAPT:'Bordas',
+            descriptionAPT:'Cuadro eléctrico con cerradura rota',
+            actionAPT:'Reparación cerradura',
+            typeAP:'Condicion',
+            category:'Riesgo eléctrico',
+            photoAPT:'Foto 1',
+            learningAPT:'Humedad provoca derivación eléctrica',
+            causes:'Deterioro material',
+            },
+            {nAPT: '4',
+            idInitiator: 'Max',
+            idSupervisor:'JARomero',
+            dateAPT:'29/03/2018',
+            areaAPT:'Bordas',
+            descriptionAPT:'Cuadro eléctrico con cerradura rota',
+            actionAPT:'Reparación cerradura',
+            typeAP:'Condicion',
+            category:'Riesgo eléctrico',
+            photoAPT:'Foto 1',
+            learningAPT:'Humedad provoca derivación eléctrica',
+            causes:'Deterioro material',
+            },
+            {nAPT: '5',
+            idInitiator: 'Max',
+            idSupervisor:'JARomero',
+            dateAPT:'01/04/2018',
+            areaAPT:'Bordas',
+            descriptionAPT:'Cuadro eléctrico con cerradura rota',
+            actionAPT:'Reparación cerradura',
+            typeAP:'Condicion',
+            category:'Riesgo eléctrico',
+            photoAPT:'Foto 1',
+            learningAPT:'Humedad provoca derivación eléctrica',
+            causes:'Deterioro material',
+            },
+            {nAPT: '6',
+            idInitiator: 'Max',
+            idSupervisor:'JARomero',
+            dateAPT:'01/04/2018',
+            areaAPT:'Bordas',
+            descriptionAPT:'Cuadro eléctrico con cerradura rota',
+            actionAPT:'Reparación cerradura',
+            typeAP:'Condicion',
+            category:'Riesgo eléctrico',
+            photoAPT:'Foto 1',
+            learningAPT:'Humedad provoca derivación eléctrica',
+            causes:'Deterioro material',
+            },],
+        }
+    })
+    var app5 = new Vue({
+        el: '#app-5',
+        data: {
+          message: 'APRENDIENDO '
+        },
+        methods: {
+          reverseMessage: function () {
+            this.message = this.message.split('').reverse().join('')
+          }
+        }
+      })
+
+      var apt = [
+        {nAPT: '1',
+        idInitiator: 'Max',
+        idSupervisor:'JARomero',
+        dateAPT:'17/03/2018',
+        areaAPT:'Bordas',
+        descriptionAPT:'Cuadro eléctrico con cerradura rota',
+        actionAPT:'Reparación cerradura',
+        typeAP:'Condicion',
+        category:'Riesgo eléctrico',
+        photoAPT:'Foto 1',
+        learningAPT:'Humedad provoca derivación eléctrica',
+        causes:'Deterioro material',
+        },
+        {nAPT: '2',
+        idInitiator: 'Max',
+        idSupervisor:'JARomero',
+        dateAPT:'21/03/2018',
+        areaAPT:'Bordas',
+        descriptionAPT:'Cuadro eléctrico con cerradura rota',
+        actionAPT:'Reparación cerradura',
+        typeAP:'Condicion',
+        category:'Riesgo eléctrico',
+        photoAPT:'Foto 1',
+        learningAPT:'Humedad provoca derivación eléctrica',
+        causes:'Deterioro material',
+        },
+        {nAPT: '3',
+        idInitiator: 'Max',
+        idSupervisor:'JARomero',
+        dateAPT:'26/03/2018',
+        areaAPT:'Bordas',
+        descriptionAPT:'Cuadro eléctrico con cerradura rota',
+        actionAPT:'Reparación cerradura',
+        typeAP:'Condicion',
+        category:'Riesgo eléctrico',
+        photoAPT:'Foto 1',
+        learningAPT:'Humedad provoca derivación eléctrica',
+        causes:'Deterioro material',
+        },
+        {nAPT: '4',
+        idInitiator: 'Max',
+        idSupervisor:'JARomero',
+        dateAPT:'29/03/2018',
+        areaAPT:'Bordas',
+        descriptionAPT:'Cuadro eléctrico con cerradura rota',
+        actionAPT:'Reparación cerradura',
+        typeAP:'Condicion',
+        category:'Riesgo eléctrico',
+        photoAPT:'Foto 1',
+        learningAPT:'Humedad provoca derivación eléctrica',
+        causes:'Deterioro material',
+        },
+        {nAPT: '5',
+        idInitiator: 'Max',
+        idSupervisor:'JARomero',
+        dateAPT:'01/04/2018',
+        areaAPT:'Bordas',
+        descriptionAPT:'Cuadro eléctrico con cerradura rota',
+        actionAPT:'Reparación cerradura',
+        typeAP:'Condicion',
+        category:'Riesgo eléctrico',
+        photoAPT:'Foto 1',
+        learningAPT:'Humedad provoca derivación eléctrica',
+        causes:'Deterioro material',
+        },
+        {nAPT: '6',
+        idInitiator: 'Max',
+        idSupervisor:'JARomero',
+        dateAPT:'01/04/2018',
+        areaAPT:'Bordas',
+        descriptionAPT:'Cuadro eléctrico con cerradura rota',
+        actionAPT:'Reparación cerradura',
+        typeAP:'Condicion',
+        category:'Riesgo eléctrico',
+        photoAPT:'Foto 1',
+        learningAPT:'Humedad provoca derivación eléctrica',
+        causes:'Deterioro material',
+        }];
+</script>
+<style>
+    h3{
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+   color: #12682f;
+   width: 25%;
+   position: relative;
+   -webkit-animation: mymove 0s infinite; /* Safari 4.0 - 8.0 */
+   animation: mymove1 5s infinite;
+}
+
+@keyframes mymove1 {
+   from {
+       font-size: 40px;}
+
+      100% {
+          font-size: 40px;
+          background: rgb(230, 236, 236);
+              }
+      98% {
+          font-size: 40px;               
+        }
+        98% {
+          font-size: 40px; 
+          color: #e2a115;              
+        }
+   to {
+      
+       font-size: 40px;
+       background-color: orangered;
+       color: #e2a115;
+       }
+}
+ li{
+  list-style-type:none
+ }
+table, ul {
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+color: #f1e9e9;
+height: 50%;
+border-top: 10px;
+background: rgb(230, 236, 236);
+position: relative;
+-webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+animation: mymove 6s infinite;
+}
+
+@keyframes mymove {
+from {
+  left: 0px;
+  font-size: 18px;
+  background:#beb0b0;
+  height: 80%;
+  width: 75%;
+  font-size: 18px;
+  border: 18px solid #e6ddda;}
+to {
+  left: 50px;
+  width: 75%;
+  font-size: 18px;
+  background:#011f03;
+  font-size: 18px;;
+  
+
+  -moz-border-radius: 400px 200px 35px 0px;
+  -webkit-border-radius: 35px 0px 35px 0px;
+  border: 20px solid #d4d6db;
+  }
+}
+
+button.btnFijo3{
+
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  color: #ffffff;
+
+  position:fixed;
+      top: 1%;
+      left: 40%;
+      width: 10%;
+      height:12%;
+      background-color: orangered;
+      border: 8px solid#e2a115;
+      font-size: 10px;
+  
+    animation-duration: 2s;
+    animation-name: slideBtnFijo1;
+  }
+  
+  @keyframes slideBtnFijo1 {
+    from {
+      margin-top:100%;
+      left:1%;
+    }
+    10% {
+      font-size: 65px;
+      margin-left: 1%;
+      background-color: rgb(143, 83, 16);
+    }
+    20% {
+      font-size: 20px;
+      margin-left: 1%;
+      background-color: rgb(143, 83, 16);
+    }
+    50% {
+      font-size: 65px;
+      margin-left: 1%;
+      background-color: rgb(143, 83, 16);
+    }
+  
+    to {
+      top: 1%;
+      left: 40%;
+      width: 10%;
+      height: 10%;
+      background-color: blue;
+    }
+  }
+</style>
+    </body>
+
+    </html>

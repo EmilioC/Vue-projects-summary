@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FirebaseAgregarContenido</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+   
+</head>
+
+<body>
+    <form id="formulario">
+        <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+        <br>
+        <input type="submit" value="Enviar mensaje">
+        <div class="form_group">
+                <label for "ID">ID</label>
+                <input type="text" class="form-control" id="id"/>
+              </div>
+              <div class="form_group">
+                <label for "idsupervisor">SUPERVISOR</label>
+                <input type="text" class="form-control" id="supervisor"/>
+              </div>
+              <div class="form_group">
+                  <label for "dateAPT">FECHA</label>
+                  <input type="text" class="form-control" id="fecha"/>
+              </div>
+              <div class="form_group">
+                  <label for "descriptionAPT">DESCRIPCIÓN</label>
+                  <input type="text" class="form-control" id="descripcion"/>
+              </div>
+              <div class="form_group">
+                  <label for "actionAPT">ACCIÓN TOMADA</label>
+                  <input type="text" class="form-control" id="accionTomada"/>
+              </div>
+              <div class="form_group">
+                  <label for "typeAP">TIPO APT</label>
+                  <input type="text" class="form-control" id="tipoApt"/>
+              </div>
+              <div class="form_group">
+                  <label for "category">CATEGORÍA APT</label>
+                  <input type="text" class="form-control" id="categoriaApt"/>
+              </div>
+              <div class="form_group">
+                  <label for "photoAPT">FOTO</label>
+                  <input type="text" class="form-control" id="foto"/>
+              </div>
+              <div class="form_group">
+                  <label for "learningAPT">APRENDIZAJE</label>
+                  <input type="text" class="form-control" id="aprendizaje"/>
+              </div>
+              <div class="form_group">
+                  <label for "causes">EFECTO EN LA INSTALACIÓN</label>
+                  <input type="text" class="form-control" id="efectoInstalacion"/>
+              </div>
+    </form>
+
+    <h1>Firebase 2</h1>
+
+    <script src="main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+    apiKey: "AIzaSyAHp3vB8Mc8JzdSXptEh3KY9LBQ97PeNLg",
+    authDomain: "basedatos2-ccc9b.firebaseapp.com",
+    databaseURL: "https://basedatos2-ccc9b.firebaseio.com",
+    projectId: "basedatos2-ccc9b",
+    storageBucket: "basedatos2-ccc9b.appspot.com",
+    messagingSenderId: "965566008304"
+};
+firebase.initializeApp(config);
+//Guardar una referencia a la base de datos
+var db = firebase.database();
+// set sobrescribe la información que haya.  Si no existe crea una rama.      
+/*   db.ref('/perfiles/apt').set({
+    nAPT: '2',
+    idInitiator: 'Max',
+    idSupervisor:'JARomero',
+    dateAPT:'17/03/2018',
+    areaAPT:'Bordas',
+    descriptionAPT:'Cuadro eléctrico con cerradura rota',
+    actionAPT:'Reparación cerradura',
+    typeAP:'Condicion',
+    category:'Riesgo eléctrico',
+    photoAPT:'Foto 1',
+    learningAPT:'Humedad provoca derivación eléctrica',
+    causes:'Deterioro material',
+}).then(()=>console.info('Datos añadidos'));
+*/
+
+ //push añadimos a la lista sin sobrescribir. Si no existe crea una rama.
+//Genera una clave única cada vez que se agrega un nuevo elemento secundario 
+//a la referencia de Firebase especificada.
+//Guadamos nuevos datos anidados (lista)
+document.getElementById('formulario').onsubmit = function (event) {
+    event.preventDefault();
+    console.log("Works");
+    //Capturamos la información del mensaje. 
+    let mensaje = document.getElementById('mensaje');
+    //Cargamos los datos con push. Si 'chat'no estuviese creado, lo crearía.
+    var newid = document.getElementById("id").value;
+    var newdate = document.getElementById("fecha").value;
+    var newaprendizaje = document.getElementById("aprendizaje").value;
+
+    
+    db.ref('/perfiles/apt').push({
+        nAPT: "",
+        idInitiator: newid,
+        idSupervisor:"",
+        dateAPT: newdate,
+        areaAPT:"",
+        descriptionAPT:"",
+        actionAPT:"",
+        typeAP:"",
+        category:"",
+        photoAPT:"",
+        learningAPT: newaprendizaje,
+        causes:""
+    }).then(() => {
+        console.info('Mensaje enviado');
+        mensaje.value = "";
+    })
+}
+       
+
+    </script>
+
+</body>
+
+</html>

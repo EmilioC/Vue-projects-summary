@@ -1,0 +1,173 @@
+
+<!--https://wmedia.teachable.com/courses/140226/lectures/3134514-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-Firebase_APT1</title>
+    <link rel="stylesheet" href="pruebatablasCSS.css">
+
+</head>
+<body>
+<div id="app">
+
+        <!-- Tabla muestra APT desde Firebase en pantalla-->
+       
+        <table v-for="(mensaje, index) in mensajes" class="tabla1" >
+                <thead>
+                    <th>FECHA</th>
+                    <th>ID</th>
+                    <th>APRENDÍ</th>
+                    <th>descripcion</th>
+                    <th>APR</th>
+                    <th>APRENDÍ</th>
+                    <th>APRENDÍ</th>
+                    <th>APRENDÍ</th>
+                    <th>APRENDÍ</th>
+                    <th>APRENDÍ</th>
+                </thead >
+                    <tr>
+                        <td> {{ mensaje.fecha }} </td>
+                        <td> {{ mensaje.id }} </td>
+                        <td> {{ mensaje.aprendizaje }} </td>
+                        <td> {{ mensaje.descripcion }} </td>
+                        <td> {{ mensaje.accion }} </td>
+                        <td> {{ mensaje.typeAPT }} </td>
+                        <td> {{ mensaje.category }} </td>
+                        <td> {{ mensaje.photo }} </td>
+                        <td> {{ mensaje.aprendizaje }} </td>
+                        <td> {{ mensaje.causes }} </td>
+                    </tr>
+            </table>
+            
+        <!-- Tabla muestra APT desde Firebase en pantalla-->
+
+    <form @submit.prevent="enviarMensaje">
+            <input v-model="mensaje" type="text" class="form-control"/> 
+        <div class="form_group">
+            <label for="id">ID</label>
+            <input v-model="id" type="text" class="form-control"/>
+        </div>
+        <div class="form_group">
+            <label for="idsupervisor">SUPERVISOR</label>
+            <input type="text" class="form-control" v-model="supervisor" />
+        </div>        
+        <div class="form_group">
+            <label for="fecha">FECHA</label>
+            <input type="text" class="form-control" v-model="fecha" />
+        </div>
+        <div class="form_group">
+            <label for="descriptionAPT">DESCRIPCIÓN</label>
+            <input type="text" class="form-control" v-model="descripcion" />
+        </div>
+        <div class="form_group">
+            <label for="actionAPT">ACCIÓN TOMADA</label>
+            <input type="text" class="form-control" v-model="accion" />
+        </div>
+        <div class="form_group">
+            <label for="typeAPT">TIPO APT</label>
+            <input type="text" class="form-control" v-model="typeAPT" />
+        </div>
+        <div class="form_group">
+            <label for="category">CATEGORÍA APT</label>
+            <input type="text" class="form-control" v-model="category" />
+        </div>
+        <div class="form_group">
+            <label for="photoAPT">FOTO</label>
+            <input type="text" class="form-control" v-model="photo" />
+        </div>
+        <div class="form_group">
+            <label for="learningAPT">APRENDIZAJE</label>
+            <input type="text" class="form-control" v-model="aprendizaje" />
+        </div>
+        <div class="form_group">
+            <label for="causes">EFECTO EN LA INSTALACIÓN</label>
+            <input type="text" class="form-control" v-model="causes" />
+        </div>
+        <input type="submit" value="Enviar mensaje">
+        </form>
+        <hr>
+        <h1>Mensajes</h1>
+        <ul>
+    
+        <li v-for="mensaje in mensajes">
+        <!--Utilizamos $event: variable de "cortesía" de Vue que aporta información sobre el evento
+        Con @blur: indicamos que cuando pierda el foco recargue y muestre el resultado del método editarMensaje
+        Enviaremos el mensaje local (key específica) dentro de la directiva v-for que recorre la matriz mensajes-->
+           
+        <!-- PENDIENTE DE REVISAR EL MÉTODO EDIT
+            <span contenteditable="true" @blur="editarMensaje($event, mensaje.key)">
+                    {{ mensaje.mensaje}}
+            </span>
+        -->
+            <small><i>{{ mensaje.id }}</i></small>
+            <small><i>{{ mensaje.supervisor }}</i></small>
+            <small><i>{{ mensaje.fecha }}</i></small>
+            <small><i>{{ mensaje.descripcion }}</i></small>
+            <small><i>{{ mensaje.accion }}</i></small>
+            <small><i>{{ mensaje.typeAPT }}</i></small>
+            <small><i>{{ mensaje.category }}</i></small>
+            <small><i>{{ mensaje.photo }}</i></small>
+            <small><i>{{ mensaje.aprendizaje }}</i></small>
+            <small><i>{{ mensaje.causes }}</i></small>
+            <!-- eliminamos solo el mensaje.key, que identifica de manera unívoca el mensaje seleccionado-->
+            <button @click="eliminarMensaje(mensaje.key)">delete</button>
+        
+        </li>
+    </ul>
+<h1>SEGUNDA TABLA</h1>
+    <ul>
+     <li v-for="(mensaje, index) in mensajes">
+                {{index}} - {{mensajes.id}}
+             <tr><td>
+                    <small><i>{{ mensaje.id }}</i></small>
+                    <small><i>{{ mensaje.supervisor }}</i></small>
+                    <small><i>{{ mensaje.fecha }}</i></small>
+                    <small><i>{{ mensaje.descripcion }}</i></small>
+                    <small><i>{{ mensaje.accion }}</i></small>
+                    <small><i>{{ mensaje.typeAPT }}</i></small>
+                    <small><i>{{ mensaje.category }}</i></small>
+                    <small><i>{{ mensaje.photo }}</i></small>
+                    <small><i>{{ mensaje.aprendizaje }}</i></small>
+                    <small><i>{{ mensaje.causes }}</i></small>
+                <!-- eliminamos solo el mensaje.key, que identifica de manera unívoca el mensaje seleccionado-->
+                <button @click="eliminarMensaje(mensaje.key)">delete</button>
+             </td></tr>
+            </li>
+        </ul>
+
+        <!-- Prueba carga de tabla con APT´s-->
+       
+        <table v-for="(mensaje, index) in mensajes" class="tabla1" >
+            <thead>
+                <th>FECHA</th>
+                <th>ID</th>
+                <th>APRENDÍ</th>
+                <th>descripcion</th>
+                <th>APR</th>
+                <th>APRENDÍ</th>
+                <th>APRENDÍ</th>
+                <th>APRENDÍ</th>
+                <th>APRENDÍ</th>
+                <th>APRENDÍ</th>
+            </thead >
+                <tr>
+                    <td> {{ mensaje.fecha }} </td>
+                    <td> {{ mensaje.id }} </td>
+                    <td> {{ mensaje.aprendizaje }} </td>
+                    <td> {{ mensaje.descripcion }} </td>
+                    <td> {{ mensaje.accion }} </td>
+                    <td> {{ mensaje.typeAPT }} </td>
+                    <td> {{ mensaje.category }} </td>
+                    <td> {{ mensaje.photo }} </td>
+                    <td> {{ mensaje.aprendizaje }} </td>
+                    <td> {{ mensaje.causes }} </td>
+                </tr>
+        </table>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
+<script src="mainAPT1.js"></script>
+</body>
+</html>

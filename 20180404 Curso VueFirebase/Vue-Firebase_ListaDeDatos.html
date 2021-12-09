@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    const config = {
+            apiKey: "AIzaSyAHp3vB8Mc8JzdSXptEh3KY9LBQ97PeNLg",
+            authDomain: "basedatos2-ccc9b.firebaseapp.com",
+            databaseURL: "https://basedatos2-ccc9b.firebaseio.com",
+            projectId: "basedatos2-ccc9b",
+            storageBucket: "basedatos2-ccc9b.appspot.com",
+            messagingSenderId: "965566008304"
+        };
+    firebase.initializeApp(config);
+    const db = firebase.database();
+    // Vue stuff
+    new Vue({
+        el: '#app',
+        created() {
+
+    //El método .push genera una key unívoca, donde optenemos a través de username 
+    // ¿qué operación realizó juanwnedia?
+            /*db.ref('chats').push({
+                mensaje: 'Hola, mundo',
+                username: 'juanwmedia',
+            });*/
+
+            // Con key accedemos a una instancia en tiempo real de la base de datos, 
+            // concretamente en el directorio: /chats
+            const key = db.ref('chats').push().key;
+            console.log(key);
+
+    // Con set guardamos key en otro lugar de bd: en este caso /perfiles, como se indica
+    // en db.ref('/perfiles')
+            db.ref('chats').child(key).set({
+                mensaje: 'Hola, mundo, desde SET',
+                username: 'emilio',
+                nOrden: '15204',
+                ciudad: '15204',
+            });
+    // Guarda información en /perfiles/juanwmedia/chats/key
+            db.ref('/perfiles')
+                .child('juanwmedia').child('chats').child(key)
+                .set(true);
+            },
+         });
+
+         db.ref('chats').child(key).set({
+                mensaje: 'Hola, mundo, desde SET',
+                username: 'emilio',
+                nOrden: '15204',
+                ciudad: 'alhambra',
+            });
+</script>
+</body>
+</html>

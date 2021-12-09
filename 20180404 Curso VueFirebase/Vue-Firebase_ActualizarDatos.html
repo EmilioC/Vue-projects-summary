@@ -1,0 +1,100 @@
+
+<!--https://wmedia.teachable.com/courses/140226/lectures/3120050-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+</head>
+<body>
+<div id="app">
+    <form @submit.prevent="enviarMensaje">
+        <textarea v-model="mensaje" cols="30" rows="10"></textarea>
+        <br>
+        <input type="submit" value="Enviar mensaje">
+    </form>
+    <hr>
+    <h1>Mensajes</h1>
+    <ul>
+        <li v-for="mensaje in mensajes">
+
+        <!--Utilizamos $event: variable de "cortesía" de Vue que aporta información sobre el evento
+        Con @blur: indicamos que cuando pierda el foco recargue y muestre el resultado del método editarMensaje
+        Enviaremos el mensaje local (key específica) dentro de la directiva v-for que recorre la matriz mensajes-->
+            <span contenteditable="true" @blur="editarMensaje($event, mensaje.key)">
+                {{ mensaje.mensaje}}
+            </span>
+            <small><i>({{ mensaje.username }})</i></small>
+            <small><i>({{ mensaje.username1 }})</i></small>
+        </li>
+    </ul>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    const config = {
+        apiKey: "AIzaSyAHp3vB8Mc8JzdSXptEh3KY9LBQ97PeNLg",
+        authDomain: "basedatos2-ccc9b.firebaseapp.com",
+        databaseURL: "https://basedatos2-ccc9b.firebaseio.com",
+        projectId: "basedatos2-ccc9b",
+        storageBucket: "basedatos2-ccc9b.appspot.com",
+        messagingSenderId: "965566008304"
+    };
+    firebase.initializeApp(config);
+    const db = firebase.database();
+    // Vue stuff
+    new Vue({
+        el: '#app',
+        created() {
+            db.ref('/chats')
+                .on('value', snapshot => this.cargarMensajes(snapshot.val()))
+        },
+        data: {
+            mensaje: null,
+            username: 'juanwmedia',
+            username1: 'Emilio en este caso',
+            mensajes: [],
+        },
+        methods: {
+            cargarMensajes(mensajes) {
+                this.mensajes = [];
+                for (let key in mensajes) {
+                    this.mensajes.push({
+                        mensaje: mensajes[key].mensaje,
+                        username: mensajes[key].username,
+                        username1: mensajes[key].username1,
+                        key: key,
+                    });
+                }
+                //Mostramos en primer lugar los últimos valores incorporados en la matriz. 
+                this.mensajes.reverse();
+            },
+            enviarMensaje() {
+                db.ref('/chats')
+                    .push({
+                        mensaje: this.mensaje,
+                        username: this.username,
+                        username1: this.username1,
+                    })
+                    .then((data) => {
+                        this.mensaje = '';
+                        console.log(data.key);
+                        console.log(this.username);
+                    });
+            },
+
+            //Recibimos como parámetro key: idenditifador único de actualización en Firebase
+            editarMensaje(mensaje, key) {
+                //Definimos qué debemos actualizar. En este caso especificando key generado
+                // cuando cargamos el mensaje. 
+                db.ref('/chats/' + key).update({
+                    //Solo actualizamos el mensaje. Lo único que hemos modificado. 
+                    mensaje: mensaje.target.innerHTML
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>

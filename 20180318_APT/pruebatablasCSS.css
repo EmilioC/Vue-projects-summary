@@ -1,0 +1,510 @@
+form{
+
+    margin-top: 2%;
+    height: 100%;
+    width: 50%;
+    background-color: #889ccf;
+    border-radius: 10px;
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    color: #ffffff;
+  }
+
+  input {
+    animation-duration: 4s;
+    animation-name: slideinSelectCategoriaRiesgo;
+  }
+  
+  @keyframes slideinSelectCategoriaRiesgo {
+    from {
+      margin-left:200px;
+      width: 75%
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+  
+  select.selectTipoRiesgo {
+    animation-duration: 4s;
+    animation-name: slideinSelectCategoriaRiesgo;
+  }
+  
+  @keyframes slideinSelectCategoriaRiesgo {
+    from {
+      margin-left:200px;
+      width: 75%
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+  
+  select.SelectEmpleados {
+    animation-duration: 6s;
+    animation-name: slideinSelectEmpleados;
+  }
+  
+  @keyframes slideinSelectEmpleados {
+    from {
+      margin-left:200px;
+      width: 300%
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+  
+  select.categoria {
+    animation-duration: 5s;
+    animation-name: slideinSelectTipoRiesgo;
+  }
+  
+  @keyframes slideinSelectTipoRiesgo {
+    from{
+      margin-left:200px;
+    width: 75%
+  }
+  
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+  }
+  
+  canvas {
+      animation-duration: 2s;
+      animation-name: slidein;
+    }
+    
+    @keyframes slidein {
+      from {
+        margin-left: 100%;
+        width: 300%
+      }
+    
+      to {
+        margin-left: 0%;
+        width: 100%;
+      }
+  }
+  
+  table.table2{
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    background: #889ccf;
+    margin: 0 0 0px; 
+    overflow: hidden;
+    padding: 200px;
+    border-radius: 35px 0px 35px 0px;
+    border-block-end-color: #45a049;
+    -moz-border-radius: 35px 0px 35px 0px;
+    -webkit-border-radius: 35px 0px 35px 0px;
+    border: 2px solid #5878ca;
+    width: 50%;
+  }
+
+  table.tabla1{
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    background: #889ccf;
+    margin: 1% 0 25px;
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 35px 0px 35px 0px;
+    -moz-border-radius: 35px 0px 35px 0px;
+    -webkit-border-radius: 35px 0px 35px 0px;
+    border: 2px solid #5878ca 2px solid #5878ca;
+    width: 50%;
+
+    animation-duration: 6s;
+    animation-name: botonEfecto1;
+
+  }
+
+  tbody.bordetabla{
+    background: #01123d;
+  }
+  
+  th, td {
+      text-align: left;
+      padding: 8px;
+      text-shadow: #4CAF50;
+        border: 4px solid rgb(252, 252, 252);
+        border-top: 1px solid rgb(252, 252, 252);
+        border-left: 1px solid rgb(252, 252, 252);
+    }
+  
+  img.imagen1{
+      position:fixed;
+       top: 20px;
+       right: 200px;
+       width:80px;
+       height: 80px;
+   }
+  
+   img.imagen1 {
+      animation-duration: 5s;
+      animation-name: efectoImagen1;
+      animation-iteration-count: 1;
+    }
+    
+    @keyframes efectoImagen1 {
+      from {
+      top: 20px;
+       right: 200px;       
+      }
+    
+      100% {
+        font-size: 20px;
+        margin-left: 200px;
+        width: 100px;
+     
+            }
+            75% {
+                font-size: 20px;
+                margin-left: 200px;
+                width: 250px;
+                background-color: orangered;
+              }
+    
+      to {
+          top: 20px;
+          right: 200px;;
+      }
+    }
+  
+  img.imagen2{
+  
+      position:fixed;
+       top: 20px;
+       right: 100px;
+       width: 80px;
+       height: 80px;
+   }
+  
+   img.imagen2 {
+      animation-duration: 5s;
+      animation-name: efectoImagen2;
+      animation-iteration-count: 1;
+    }
+    
+    @keyframes efectoImagen2 {
+      from {
+       top: 20px;
+       right: 100px;       
+      }
+    
+      10% {
+        top: 30px;
+          
+            }
+      10%{
+          top: 40px;
+          right: 30px; 
+              }
+    
+      to {
+          top: 20px;
+      }
+    }
+  
+  
+  button.btnFijo1{
+  
+  position:fixed;
+      top: 1%;
+      right: 10%;
+      width: 10%;
+      height:10%;
+      background-color: #5878ca;
+      border: 8px solid #889ccf;
+      font-size: 12px;
+  
+    animation-duration: 3s;
+    animation-name: slideBtnFijo1;
+  }
+  
+  @keyframes slideBtnFijo1 {
+    from {
+      margin-top:2%;
+      width: 20%
+    }
+  
+    to {
+      top: 1%;
+      right: 10%;
+      width: 10%;
+      height: 10%;
+    }
+  }
+  button.btnFijo2{
+  
+    position:fixed;
+        top: 1%;
+        right: 2%;
+        width: 7%;
+        height: 10%;
+        background-color: #5878ca;
+        border: 8px solid #889ccf;
+    }
+  
+  button.botonSticky{
+    position: sticky;
+    top: 5px;
+    padding: 8px;
+    left: 45px;
+    background-color: #5878ca;
+    border: 8px solid #889ccf;
+  }
+
+  button.btnFijo3{
+
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    color: #ffffff;
+  
+    position:fixed;
+        top: 1%;
+        left: 40%;
+        width: 10%;
+        height:10%;
+        background-color: #5878ca;
+        border: 8px solid #889ccf;
+        font-size: 12px;
+    
+      animation-duration: 2s;
+      animation-name: slideBtnFijo1;
+    }
+    
+    @keyframes slideBtnFijo1 {
+      from {
+        margin-top:100%;
+        left:1%;
+      }
+      10% {
+        font-size: 65px;
+        margin-left: 1%;
+        background-color: rgb(143, 83, 16);
+      }
+      20% {
+        font-size: 20px;
+        margin-left: 1%;
+        background-color: rgb(143, 83, 16);
+      }
+      50% {
+        font-size: 65px;
+        margin-left: 1%;
+        background-color: rgb(143, 83, 16);
+      }
+    
+      to {
+        top: 1%;
+        left: 40%;
+        width: 10%;
+        height: 10%;
+        background-color: blue;
+      }
+    }
+  
+  button.botonEfecto1 {
+      animation-duration: 5s;
+      animation-name: botonEfecto1;
+      animation-iteration-count: 1;
+    }
+    
+    @keyframes botonEfecto1 {
+      from {
+        margin-left: 50%;
+        width: 50%; 
+        background-color: #fdfdff;
+        font-size: 2px;
+      }
+    
+      20% {
+          font-size: 22px;
+          margin-left: 200px;
+          width: 250px;
+          background-color: rgb(189, 179, 178);
+        }
+        50% {
+          font-size: 2px;
+          margin-left: 200px;
+          width: 25px;
+          background-color:#5878ca;
+        }
+        25% {
+            font-size: 20px;
+            margin-left: 200px;
+            margin-top: 2px;
+            width: 200px;
+            background-color:  #e7eaf1;
+          }
+          5% {
+              font-size: 30px;
+              margin-left: 200px;
+              width: 300px;
+              background-color: #5878ca;
+            }
+            
+              100% {
+                font-size: 20px;
+                margin-left: 200px;
+                width: 250px;
+                background-color: 5878ca;
+              }
+    
+      to {
+        margin-left: 0%;
+        margin-right: 10px;
+        background-color:#e7eaf1;
+        width: 50%;
+      }
+    }
+  
+    button.botonEfecto2 {
+      animation-duration: 2s;
+      animation-name: botonEfecto2;
+      animation-iteration-count: 2;
+    }
+    
+    @keyframes botonEfecto2 {
+      from {
+        margin-left: 500px;
+        width: 10px; 
+      }
+    
+      10% {
+        font-size: 20px;
+        margin-left: 200px;
+        width: 400px;
+        background-color: blue;
+     
+            }
+            75% {
+                font-size: 20px;
+                margin-left: 200px;
+                width: 250px;
+                background-color: orangered;
+              }
+    
+      to {
+        margin-left: 0%;
+        margin-right: 10px;
+        background-color: rgb(189, 179, 178);
+        width: 200px;
+      }
+    }
+  
+  
+  
+  /* Estilo aplicado a formulario de W3school.com:
+   https://www.w3schools.com/css/tryit.asp?filename=trycss_forms*/
+  
+  input[type=text], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 3px solid rgb(200, 223, 204);
+      border-radius: 4px;
+      box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+      background-color: #45a049;
+  }
+  
+  
+  
+  /* Ejemplo animación texto: https://developer.mozilla.org/es/docs/Web/CSS/CSS_Animations/Usando_animaciones_CSS
+  }*/
+  input.inputFormularioAPT{
+  
+      background-color: white;
+  
+  }
+  
+  p{
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  background: #889ccf;
+  margin: 0 0 25px;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 35px 0px 35px 0px;
+  -moz-border-radius: 35px 0px 35px 0px;
+  -webkit-border-radius: 35px 0px 35px 0px;
+  border: 2px solid #5878ca;
+  }
+
+  h1{
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+   color: #12682f;
+   width: 35%;
+   -webkit-animation: mymove 0s infinite; /* Safari 4.0 - 8.0 */
+   animation: mymove1 5s infinite;
+    border-style: dotted;
+    border-width: 15px;
+}
+
+@keyframes mymove1 {
+   from {
+       font-size: 40px;}
+
+      100% {
+          font-size: 40px;
+          background: rgb(230, 236, 236);
+              }
+      98% {
+          font-size: 40px;               
+        }
+        98% {
+          font-size: 40px; 
+          color: #e2a115;              
+        }
+   to {
+      
+       font-size: 40px;
+       background-color: orangered;
+       color: #e2a115;
+       }
+}
+ li{
+  list-style-type:none
+ }
+table, ul {
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+color: #f1e9e9;
+height: 50%;
+border-top: 10px;
+background: rgb(230, 236, 236);
+position: relative;
+-webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+animation: mymove 6s infinite;
+}

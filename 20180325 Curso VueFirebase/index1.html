@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue.js</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+       ul {
+        font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    color: #ffffff;
+    height: 50%;
+    background: rgb(230, 236, 236);
+    position: relative;
+    -webkit-animation: mymove 1s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 20s infinite;
+}
+
+@keyframes mymove {
+    from {left: 0px;
+        font-size: 18px;
+        background:#45a049;
+        height: 80%;
+        font-size: 18px;}
+    to {left: 11px;
+        background:rgb(45, 100, 100);
+        font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 40px;
+    text-align: left;
+    background: #889ccf; 
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 35px 0px 35px 0px;
+    border-block-end-color: #45a049;
+    -moz-border-radius: 35px 0px 35px 0px;
+    -webkit-border-radius: 35px 0px 35px 0px;
+    border: 2px solid #5878ca;
+    }
+}
+        </style>
+</head>
+
+<body>
+    <main>
+        <ul>
+            <li v-for="dia in laborales">{{ dia }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="noche in nombre">{{ noche }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="noche in edad">{{ noche }}</li>
+        </ul>
+                
+    </main>
+    <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+    <script src="main1.js"></script>
+</body>
+
+<script>const vm = new Vue({
+    el: 'main',
+    data:  {
+        laborales: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],  
+        nombre: 'Juan',
+        edad: 'Rápido',
+    },
+});</script>
+
+</html>

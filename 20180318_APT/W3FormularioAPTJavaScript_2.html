@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario APT</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src= "cargaTabla.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <form id="nuevo-equipo">
+        <div class="form_group">
+          <label for "equipo">Equipos</label>
+          <input type="text" class="form-control" id="equipo"/>
+        </div>
+        <div class="form_group">
+          <label for "equipo">Puntos</label>
+          <input type="text" class="form-control" id="puntos"/>
+        </div>
+          <input type="submit" value="addEquipo"/>
+      </form>
+  </div>
+    <div class="col-sm-6">
+      <div id="tabla-clasificacion">
+      <table class="tabla">
+        <thead>
+            <tr>
+              <th>Equipos</th>
+              <th>puntos</th>
+            </tr>
+            <h4>EQUIPOS</h4>
+        </thead>
+         <tbody id="equipos-tabla">          
+         </tbody>    
+        
+      </table>
+      <button id="mostrar-tabla">Mostra</button>      
+      </div>
+    </div>
+  </div>
+</div>
+
+// Tabla APT
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <form id="nuevo-equipo1">
+        <div class="form_group">
+          <label for "equipo1">Equipos</label>
+          <input type="text" class="form-control" id="equipo1"/>
+        </div>
+        <div class="form_group">
+          <label for "equipo">Puntos</label>
+          <input type="text" class="form-control" id="puntos1"/>
+        </div>
+          <input type="submit" value="addEquipo1"/>
+      </form>
+  </div>
+    <div class="col-sm-6">
+      <div id="tabla-clasificacion1">
+      <table class="tabla1">
+        <thead>
+            <tr>
+              <th>Equipos</th>
+              <th>Columna 1</th>
+              <th>Columna 2</th>
+              <th>Columna 3</th>
+              
+            </tr>
+            <h1>APT</h1>
+        </thead>
+         <tbody id="equipos-tabla1">
+          
+         </tbody>         
+        
+      </table>
+      <button id="mostrar-tabla1">Mostra</button>      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="cargatabla.js" class="text/JavaScript" ></script>
+</body>
+</html>
+

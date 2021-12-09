@@ -1,0 +1,189 @@
+<!doctype html>
+<html class="no-js" lang>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue - RENDERIZAR LISTAS</title>
+    <meta name="description" content>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+
+    
+        <main>
+                <button v-on:click="mostrarTabla1" id="mostrar-tabla1">ÁBRETE SÉSAMO</button>
+                <button v-on:click="reverseMessage">Reverse Message</button>
+            <div class="classNicolas">
+            <h4><p id="p1">
+                {{ persona.profesion }}</p>
+            </h4>
+            </div>
+            <!-- Matriz -->
+            <!--<ul>
+                <li v-for="dia in laborales">{{ dia }}</li>
+            </ul>-->
+    
+            <!-- Matriz de objetos (collection) -->
+
+        </div>
+        <div class="col-sm-6">
+          <div id="tabla-clasificacion">
+          <table class="tabla1">
+            <thead>
+                <th>Empleado Max</th>
+                <th>FECHA</th>
+                <th>APRENDÍ</th>
+            </thead>
+             <tbody id="equipos-tabla1">              
+             </tbody>    
+          </table>               
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+      
+          <div id="tabla-clasificacion" v-for="apts in apt">
+          <table >
+            <thead>
+                <th>n APT</th>
+                <th>FECHA</th>
+                <th>Descripción</th>                  
+            </thead>   
+            <thead > 
+                   <th>{{ apts.nAPT }} </th>
+                   <th>{{ apts.dateAPT }} </th>
+                   <th>{{apts.descriptionAPT }} </th> 
+                <tbody > {{ apts.nAPT }}    </tbody> 
+            </thead> 
+           </table>
+          </div>
+
+        </div>
+      </div>
+  
+<!-- Tabla con Vue -->
+
+            <ul>
+                <li v-for="(tarea, index) in tareas">
+                    {{ index}} - {{ tarea.nombre }} 
+                    <small>({{ tarea.prioridad}})</small>
+                </li>
+            </ul>-->
+            <ul>
+                <li v-for="(apts, index) in apt">
+                        {{ index}} - {{ apts.dateAPT }} 
+                        <small>({{  apts.descriptionAPT}})</small>
+                </li>
+            </ul>-->
+
+          
+    
+            <!-- Objeto -->
+            
+            <ul>
+                <h4 class="h4Cabecera1">RECORRER MATRIZ CON: v-for="apts in apt" </h4>
+                <div v-for="apts in apt">
+                    <ul class="ulInterior"><lo><h4>{{ apts.nAPT }}</h4>
+                        {{ apts.idInitiator }} 
+                        {{ apts.idSupervisor }}
+                        {{ apts.dateAPT }} 
+                        {{ apts.areaAPT }}
+                        {{ apts.actionAPT }}
+                        {{ apts.typeAP }}
+                        {{ apts.photoAPT }}
+                        {{ apts.learningAPT }}
+                        {{ apts.causes }} <br>
+                    </lo>
+                </ul>
+                </div>
+            </ul>
+            <ul>
+                <h4>RECORRER MATRIZ CON: v-for="(value, key, index) in apt" </h4>
+                <li v-for="(value, key, index) in apt">
+                       {{ index }} - {{ key }}: {{value}} 
+                </li>
+            </ul>
+            <pre>{{ $data }}</pre>
+
+        
+
+            <p id="p1">{{ persona.profesion }}</p>
+            
+            </div>
+        </main>
+        <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+        <script src="main3.js"></script>
+    </body>
+
+    <style>
+
+div.classNicolas {
+        font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+         color: #12682f;
+         width: 30%;
+         position: relative;
+         -webkit-animation: mymove 0s infinite; /* Safari 4.0 - 8.0 */
+         animation: mymove1 5s infinite;
+     }
+     
+     @keyframes mymove1 {
+         from {
+             font-size: 40px;}
+
+            100% {
+                font-size: 40px;
+                background: rgb(230, 236, 236);
+                    }
+            98% {
+                font-size: 40px;               
+              }
+         to {
+            
+             font-size: 40px;
+             background-color: orangered;
+             color: #e2a115;
+             }
+     }
+     
+     
+    ul, table{
+             font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+         color: #f1e9e9;
+         height: 50%;
+         border-top: 10px;
+         background: rgb(230, 236, 236);
+         position: relative;
+         -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+         animation: mymove 20s infinite;
+     }
+     
+     @keyframes mymove {
+         from {
+             left: 0px;
+             font-size: 18px;
+             background:#beb0b0;
+             height: 80%;
+             width: 75%;
+             font-size: 18px;
+             border: 18px solid #e6ddda;}
+         to {
+             left: 50px;
+             width: 75%;
+             font-size: 18px;
+             background:#011f03;
+             font-size: 18px;;
+             
+           
+             -moz-border-radius: 400px 200px 35px 0px;
+             -webkit-border-radius: 35px 0px 35px 0px;
+             border: 20px solid #d4d6db;
+             }
+     }
+
+             </style>
+    
+    </html>

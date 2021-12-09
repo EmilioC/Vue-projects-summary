@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index.html - Vue1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="pruebatablasCSS.css">
+    </head>
+
+<body>
+
+    <main>
+
+            <label for "ID">Ejemplo Vuejs</label>
+            <input  v-model='mensaje' type="text" class="form-control" id="VueInput" />
+            <h1>{{ mensaje }}</h1>
+            <pre>{{ @data }}</pre>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <form id="nuevo-equipo">
+                            <div class="form_group">
+                                    
+
+                                    <h1 id="h1Id">h1</h1>
+                                    <h2 id="h2Id">h2</h2>
+                                    <h3 id="h3Id">h3</h3>
+                                    <h4 id="h4Id">h4</h42>
+                                    <h5 id="h5Id">h5</h5>
+                                    <h6 id="h6Id">h6</h6>
+
+                                </div>
+                        <div class="form_group">
+                            <label for "ID">ID</label>
+                            <input type="text" class="form-control" id="id" />
+                        </div>
+                        <div class="form_group">
+                            <label for "idsupervisor">SUPERVISOR</label>
+                            <input type="text" class="form-control" id="fecha" />
+                        </div>
+                        <div class="form_group">
+                            <label for "dateAPT">FECHA</label>
+                            <input type="text" class="form-control" id="aprendizaje" />
+                        </div>
+                        <div class="form_group">
+                            <label for "descriptionAPT">DESCRIPCIÓN</label>
+                            <input type="text" class="form-control" id="aprendizaje" />
+                        </div>
+                        <div class="form_group">
+                            <label for "actionAPT">ACCIÓN TOMADA</label>
+                            <input type="text" class="form-control" id="aprendizaje" />
+                        </div>
+                        <div class="form_group">
+                            <label for "typeAP">TIPO APT</label>
+                            <input type="text" class="form-control" id="aprendizaje" />
+                        </div>
+                        <div class="form_group">
+                            <label for "category">CATEGORÍA APT</label>
+                            <input type="text" class="form-control" id="aprendizaje" />
+                        </div>
+                        <div class="form_group">
+                            <label for "photoAPT">FOTO</label>
+                            <input type="text" class="form-control" id="aprendizaje" />
+                        </div>
+                        <div class="form_group">
+                            <label for "learningAPT">APRENDIZAJE</label>
+                            <input type="text" class="form-control" id="aprendizaje" />
+                        </div>
+                        <div class="form_group">
+                            <label for "causes">EFECTO EN LA INSTALACIÓN</label>
+                            <input type="text" class="form-control" id="aprendizaje" />
+                        </div>
+
+                        <button class="btnFijo3" id="mostrar-tabla">TABLA 1</button>
+                        <button class="btnFijo1" id="mostrar-tabla1">TABLA 2</button>
+
+                    </form>
+
+                </div>
+                <div class="col-sm-6">
+                    <div id="tabla-clasificacion">
+                        <table class="tabla1">
+                            <thead>
+                                <th>ID</th>
+                                <th>FECHA</th>
+                                <th>APRENDÍ</th>
+                            </thead>
+                            <tbody id="equipos-tabla">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div class="col-sm-6">
+            <div id="tabla-clasificacion">
+                <table class="tabla1">
+                    <thead>
+                        <th>Empleado Max</th>
+                        <th>FECHA</th>
+                        <th>APRENDÍ</th>
+                    </thead>
+                    <tbody id="equipos-tabla1">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
+    </main>
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    
+    
+</body>
+
+</html>

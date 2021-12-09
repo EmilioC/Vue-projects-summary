@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue-Firebase1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+
+  <form id="formulario">
+    <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+    <br>
+    <input type="submit" value="Enviar mensaje">
+  </form>
+
+  <h1>Firebase 2</h1>
+
+  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAHp3vB8Mc8JzdSXptEh3KY9LBQ97PeNLg",
+    authDomain: "basedatos2-ccc9b.firebaseapp.com",
+    databaseURL: "https://basedatos2-ccc9b.firebaseio.com",
+    projectId: "basedatos2-ccc9b",
+    storageBucket: "basedatos2-ccc9b.appspot.com",
+    messagingSenderId: "965566008304"
+  };
+  firebase.initializeApp(config);
+    
+
+          //Guardar una referencia a la base de datos
+          var db = firebase.database();
+          /*// set sobrescribe la información que haya.  Si no existe crea una rama.      
+          db.ref('/perfiles/emilio').set({
+              username: 'emilicordoba',
+              password: '6464',
+              ciudad: 'Córdoba',
+              pais: 'España'
+          }).then(()=>console.info('Datos añadidos'));*/
+
+           //push añadimos a la lista sin sobrescribir. Si no existe crea una rama.
+           //Genera una clave única cada vez que se agrega un nuevo elemento secundario 
+           //a la referencia de Firebase especificada.
+           //Guadamos nuevos datos anidados (lista)
+           document.getElementById('formulario').onsubmit = function(event){
+             event.preventDefault();
+             console.log ("Works");
+             //Capturamos la información del mensaje. 
+             let mensaje = document.getElementById('mensaje');
+             //Cargamos los datos con push. Si 'chat'no estuviese creado, lo crearía.
+             db.ref('chat').push({
+               username: 'emilio',
+               mensaje: mensaje.value,
+             }).then(()=>{
+               console.info('Mensaje enviado');
+               mensaje.value= "";
+             })
+           }
+
+        </script>
+    
+</body>
+</html>
