@@ -1,0 +1,61 @@
+{
+    "jsonAPT": [{
+            "nAPT": "1",
+            "idInitiator": "Max",
+            "idSupervisor": "JARomero",
+            "dateAPT": "17/03/2018",
+            "areaAPT": "Bordas",
+            "descriptionAPT": "Cuadro eléctrico con cerradura rota",
+            "actionAPT": "Reparación cerradura",
+            "typeAP": "Condicion",
+            "category": "Riesgo eléctrico",
+            "photoAPT": "Foto 1",
+            "learningAPT": "Humedad provoca derivación eléctrica",
+            "causes": "Deterioro material"
+        },
+        {
+            "nAPT": "2",
+            "idInitiator": "Max",
+            "idSupervisor": "JARomero",
+            "dateAPT": "17/03/2018",
+            "areaAPT": "Bordas",
+            "descriptionAPT": "Cuadro eléctrico con cerradura rota",
+            "actionAPT": "Reparación cerradura",
+            "typeAP": "Condicion",
+            "category": "Riesgo eléctrico",
+            "photoAPT": "Foto 1",
+            "learningAPT": "Humedad provoca derivación eléctrica",
+            "causes": "Deterioro material"
+        },
+
+        {
+            "nAPT": "3",
+            "idInitiator": "Max",
+            "idSupervisor": "JARomero",
+            "dateAPT": "17/03/2018",
+            "areaAPT": "Bordas",
+            "descriptionAPT": "Cuadro eléctrico con cerradura rota",
+            "actionAPT": "Reparación cerradura",
+            "typeAP": "Condicion",
+            "category": "Riesgo eléctrico",
+            "photoAPT": "Foto 1",
+            "learningAPT": "Humedad provoca derivación eléctrica",
+            "causes": "Deterioro material"
+        },
+
+        {
+            "nAPT": "4",
+            "idInitiator": "Max",
+            "idSupervisor": "JARomero",
+            "dateAPT": "17/03/2018",
+            "areaAPT": "Bordas",
+            "descriptionAPT": "Cuadro eléctrico con cerradura rota",
+            "actionAPT": "Reparación cerradura",
+            "typeAP": "Condicion",
+            "category": "Riesgo eléctrico",
+            "photoAPT": "Foto 1",
+            "learningAPT": "Humedad provoca derivación eléctrica",
+            "causes": "Deterioro material"
+        }
+    ]
+}

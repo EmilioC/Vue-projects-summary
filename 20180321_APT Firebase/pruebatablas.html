@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pruebastablas.html</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="pruebatablasCSS.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <h1 id="Firebase1"> Conexión a Firebase</h1>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <form id="nuevo-equipo">
+              <div class="form_group">
+                <label for "ID">ID</label>
+                <input type="text" class="form-control" id="id"/>
+              </div>
+              <div class="form_group">
+                <label for "idsupervisor">SUPERVISOR</label>
+                <input type="text" class="form-control" id="fecha"/>
+              </div>
+              <div class="form_group">
+                  <label for "dateAPT">FECHA</label>
+                  <input type="text" class="form-control" id="aprendizaje"/>
+              </div>
+              <div class="form_group">
+                  <label for "descriptionAPT">DESCRIPCIÓN</label>
+                  <input type="text" class="form-control" id="aprendizaje"/>
+              </div>
+              <div class="form_group">
+                  <label for "actionAPT">ACCIÓN TOMADA</label>
+                  <input type="text" class="form-control" id="aprendizaje"/>
+              </div>
+              <div class="form_group">
+                  <label for "typeAP">TIPO APT</label>
+                  <input type="text" class="form-control" id="aprendizaje"/>
+              </div>
+              <div class="form_group">
+                  <label for "category">CATEGORÍA APT</label>
+                  <input type="text" class="form-control" id="aprendizaje"/>
+              </div>
+              <div class="form_group">
+                  <label for "photoAPT">FOTO</label>
+                  <input type="text" class="form-control" id="aprendizaje"/>
+              </div>
+              <div class="form_group">
+                  <label for "learningAPT">APRENDIZAJE</label>
+                  <input type="text" class="form-control" id="aprendizaje"/>
+              </div>
+              <div class="form_group">
+                  <label for "causes">EFECTO EN LA INSTALACIÓN</label>
+                  <input type="text" class="form-control" id="aprendizaje"/>
+              </div>
+              
+      <button class="btnFijo3" id="mostrar-tabla">TABLA 1</button> 
+      <button class="btnFijo1" id="mostrar-tabla1">TABLA 2</button> 
+
+            </form>
+        </div>
+          <div class="col-sm-6">
+            <div id="tabla-clasificacion">
+            <table class="tabla1">
+              <thead>
+                  <th>ID</th>
+                  <th>FECHA</th>
+                  <th>APRENDÍ</th>                  
+              </thead>
+               <tbody id="equipos-tabla">              
+               </tbody>     
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+          <div class="col-sm-6">
+            <div id="tabla-clasificacion">
+            <table class="tabla1">
+              <thead>
+                  <th>Empleado Max</th>
+                  <th>FECHA</th>
+                  <th>APRENDÍ</th>
+              </thead>
+               <tbody id="equipos-tabla1">              
+               </tbody>    
+            </table>               
+            </div>
+          </div>
+        </div>
+
+<script src="cargatabla.js" class="text/JavaScript" ></script>
+
+  
+</table>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA199lIgEcSqf3xEqfWnszRLRTYU4qogRk",
+    authDomain: "apt-1-73417.firebaseapp.com",
+    databaseURL: "https://apt-1-73417.firebaseio.com",
+    projectId: "apt-1-73417",
+    storageBucket: "apt-1-73417.appspot.com",
+    messagingSenderId: "827475705728"
+  };
+  firebase.initializeApp(config);
+
+  var Firebase1 = document.getElementById('Firebase1');
+  //Creamos referencia a la base de datos. 
+  var dbRef = firebase.database().ref().child('text');
+  //Sincronizamos con el método on cualquier cambio en la base de datos
+  dbRef.on('value', snap => Firebase1.innerHTML = snap.val() );
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario APT</title>
+
+
+</head>
+<body>
+
+  <h1 id="holaMundo"> </h1>
+
+   <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCy_XSsp1DwdFMRIfzrf7VUkPN6Gv60Eto",
+    authDomain: "apt-1-9f17f.firebaseapp.com",
+    databaseURL: "https://apt-1-9f17f.firebaseio.com",
+    projectId: "apt-1-9f17f",
+    storageBucket: "apt-1-9f17f.appspot.com",
+    messagingSenderId: "753293874180"
+  };
+  firebase.initializeApp(config);
+
+  var holaMundo = document.getElementById('holaMundo');
+  //Creamos referencia a la base de datos. 
+  var dbRef = firebase.database().ref().child('text');
+  //Sincronizamos con el método on cualquier cambio en la base de datos
+  dbRef.on('value', snap => holaMundo.innerText = snap.val() );
+</script>
+
+</body>
+</html>
+

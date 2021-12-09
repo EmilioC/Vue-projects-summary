@@ -1,0 +1,64 @@
+h1 {
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+   color: #12682f;
+   width: 30%;
+   position: relative;
+   -webkit-animation: mymove 0s infinite; /* Safari 4.0 - 8.0 */
+   animation: mymove1 5s infinite;
+}
+
+@keyframes mymove1 {
+   from {
+       font-size: 40px;}
+
+      100% {
+          font-size: 40px;
+          background: rgb(230, 236, 236);
+              }
+      98% {
+          font-size: 40px;               
+        }
+   to {
+      
+       font-size: 40px;
+       background-color: orangered;
+       color: #e2a115;
+       }
+}
+    
+table{
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+color: #f1e9e9;
+height: 50%;
+border-top: 10px;
+background: rgb(230, 236, 236);
+position: relative;
+-webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+animation: mymove 20s infinite;
+}
+
+@keyframes mymove {
+from {
+  left: 0px;
+  font-size: 18px;
+  background:#beb0b0;
+  height: 80%;
+  width: 75%;
+  font-size: 18px;
+  border: 18px solid #e6ddda;}
+to {
+  left: 50px;
+  width: 75%;
+  font-size: 18px;
+  background:#011f03;
+  font-size: 18px;;
+  
+
+  -moz-border-radius: 400px 200px 35px 0px;
+  -webkit-border-radius: 35px 0px 35px 0px;
+  border: 20px solid #d4d6db;
+  }
+}
+
+
+
